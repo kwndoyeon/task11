@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>COSMOS</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+		<style type="text/css">
+		html {font-family: "Noto Sans KR", sans-serif;font-optical-sizing: auto;font-weight: 500;font-style: normal;line-height: 1.6;word-break: keep-all}
+		body, h1, h2, h3, p, ol, ul{margin: 0;padding: 0}
+		body {overflow-x: hidden;}
+		h2{font-weight: 780;font-size: 4rem;padding-top: 60px;padding-bottom: 60px}
+		p{font-size: 1.8rem;font-weight: 600;padding-top: 20px;padding-bottom: 20px;}
+		ul {list-style: none;}
+		ul li a {text-decoration: none;display: block;padding: 0px;color: white;}
+		ul li a:hover{color: #04FBF7;transition: all 1s}
+		footer{padding-top: 100px;padding-bottom: 70px}
+		section{padding-top: 100px;padding-bottom: 100px;}
+
+		.right-text{text-align: right;}
+		.center-text{text-align: center;}
+		.right-spacing{padding-right: 150px;}
+		.left-spacing{padding-left: 150px}
+		.center-spacing{padding-left: 100px;padding-right: 100px;text-align: center}
+
+
+		.nav-wrapper {padding:30%;display: flex;justify-content: center;padding-top: 30px;position: absolute;z-index: 3}
+		.blur{background: rgba(255, 255, 255, 0.15);backdrop-filter: blur(12px);-webkit-backdrop-filter: blur(12px); border-radius: 30px;padding: 0.2rem 2rem;max-width: 600px;width: 100%;margin: 0 auto;}
+		.normal{width:1000px; margin:auto;max-width: 600px;display: flex;justify-content: space-between;align-items: center;}
+		.flex{display: flex;justify-content:space-between;align-items: center;gap: 50px;margin-right: 3px;}
+		.logo{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size: 1rem;margin-left: 4px;cursor: pointer;}
+
+		.wrap{width:1200px; margin:auto;position: relative;}
+		.hero {display: flex;justify-content: center;align-items: center;flex-direction: column;text-align: center;padding-top: 60px;position: relative;}
+		.big-title {font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size: 21rem;text-align: center;margin: 0;color: white;z-index: 2}
+		.bg-header{background: url(h-image.png);background-size: cover;background-position: center;height: 100vh;position: relative;overflow: hidden;}
+		.main-header {height: 100vh;background-image: url(h-image.png);background-size: cover;background-position: center;background-repeat: no-repeat;background-attachment: fixed;display: flex;align-items: center;justify-content: center;position: relative;overflow: hidden;}
+		.main-header::before{content:"";position: absolute;top: 0;left: 0;right: 0;bottom: 0;background: linear-gradient(to bottom,rgba(0,0,0,0.2)0%,rgba(0,0,0,0.4)70%,#000);z-index: 1;}
+
+		.mint{background-color:#04FBF7;}
+		.bottom-section {display: flex;height: 900px;width: 100%;background-color: black;}
+		.left-space {width: 50%;}
+		.right-mint {width: 50%;background-color: #04FBF7;display: flex;align-items: center;justify-content: center;position: relative;}
+
+		.black{background: black;}
+		.step1{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size: 10rem;color: #FF2F00;line-height: 1}
+		.step1-img{position: absolute;top: 10%;right: 0px;width: 400px; height: auto;object-fit: contain;}
+		.step2{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size: 10rem;color: #FF2F00;line-height: 1;padding-bottom: 300px;padding-top: 180px}
+		.step2-img{position: absolute;top: 11%;left: 0px;width: 1000px; height: auto;object-fit: contain;padding: 0}
+		.left {position: relative; left: -100px}
+		.gif-section {width: 100%; height: 50vh;background-image: url("5-gif.gif");background-repeat: repeat;background-size: 50px auto;background-position: center;background-attachment: fixed;}
+		.img-wrapper {display: inline-block;text-decoration: none;}
+		.img-box {position: relative; width: 200px;height: auto;}
+		.img-box img {width: 100%;display: block;position: absolute;top: 0;left: 0;transition: opacity 0.4s ease;}
+		.img-normal {opacity: 1;z-index: 1;}
+		.img-hover {opacity: 0;z-index: 2;}
+		.img-box:hover .img-hover {opacity: 1;}
+		.img-box:hover .img-normal {opacity: 0;}
+		.wrapper {text-align: right;}
+		.right-img {display: inline-block;}
+		.gif-section0 {width: 100%; height: 50vh;background-image: url("16-gif.gif");background-repeat: repeat;background-size: 100px auto;background-position: center;background-attachment: fixed;}
+		.img-wrapper {display: inline-block;text-decoration: none;}
+
+		.scroll-t {opacity: 0;transform: translateY(100px);transition: all 0.6s ease-out;}
+
+		.scroll-t.show { opacity: 1;transform: translateY(0);}
+		.blinking {animation: blink 0.5s ease-in-out infinite;}
+
+
+
+		.foot-wrap {width: 1500px; margin:auto;position: relative;margin-bottom: 0}
+		.foot-h2{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size:5.5rem;line-height: 1.25;}
+		.foot-p-1{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size:1.5rem;line-height: 1.25;padding-left: 780px;text-align: left;position: absolute;top: 60px}
+		.foot-p-2{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size:1.5rem;line-height: 1.25;padding-left: 280px;text-align: left;padding-left: 1100px;text-align: left;position: absolute;top: 60px}
+		.foot-p-3{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 400;font-style: normal;font-size:1.5rem;line-height: 1.25;padding-left: 280px;text-align: left;padding-left: 1100px;text-align: left;position: absolute;top: 180px}
+		.foot-f{font-family: "Special Gothic Expanded One", sans-serif;font-weight: 200;font-style: normal;font-size:0.8rem;line-height: 1.25;padding-left: 280px;text-align: left;padding-left: 1100px;text-align: left;position: absolute;top: 490px}
+
+	
+
+		@keyframes blink {0%, 100% { opacity: 1; }50% { opacity: 0; }}
+
+
+	</style>
+</head>
+
+<body>
+	<div class="nav-wrapper" style="position: fixed;">
+		<nav class= "blur">
+			<div class="normal flex">
+				<div class="logo">
+					<h1 style="color: white;"> COSMOS </h1>
+				</div>
+				<ul class="flex">
+					<li><a href=""target="self">about</a></li>
+					<li><a href="detail.html">service</a></li>
+				</ul>
+
+			</div>
+		</nav>
+	</div>
+<header class="main-header">
+	<div class="hero">
+		<h1 class= "big-title" > COSMOS </h1>
+		<p style= "color:white; z-index:2"> 지구에서 더 못 살겠을 때를 대비한 최후의 선택         </P>
+		</div>
+</header>
+<section class="black" style="height: 140vh;">
+	<img src="13-image.png" style="padding-top:200px;background-attachment: fixed;">
+		<h2 style="color:#F0390F; position: relative;left: 750px;top:-900px" class="scroll-t"> 마감날에 쫓겨 밤새 커피를<br>5잔째 마시면서...</h2>
+</section>
+<section class="gif-section0" style="height: 40vh;">
+	<div class="wrap wrapper">
+		<img src="14-image.png" class="right-img" style="width:500px;position: relative;top: 15px;">
+	</div>
+		<h2 style="color:#F0390F; position: relative;right: -120px;top: -320px; background-color: black;width: 750px;padding-left: 50px;"> 명절에 "넌 뭐하고 사니?"<br>라는 말을 들으면서...</h2>
+	</div>
+</section>
+<section class="black" style="height:50vh">
+	<h2 style="color:#04FBF7; font-size: 12rem;" class="center-spacing blinking"> 도 망 가 고 싶 다 </h2>
+</section>
+<section class="mint" style="padding: 0;">
+	<div class="wrap" style="position: relative;">
+		<img src="2-image.png" style="width: 50%;height: 50%;display: block;">
+			<h2 style="position: absolute; top: 18px;left: 60px;"> 말만 하는 건 <br> STOP! </h2>
+<div class="bottom-section"> 
+	<div class="left-space"></div>
+	<div class="right-mint">
+		<h2 style="position: absolute; top: 450px;left: 60px;"> 이제는 진짜로 <br> 현실에서 <br> 도망갈 수 있습니다</h2>
+	</div>
+	</div>
+</section>
+<section class="black" style="padding-top: 400px;position: relative;">
+	<div class="wrap">
+		<h1 class="step1" >STEP<br>1</h1>
+		<h2 style="color:white;font-size: 5rem;"> 감정 압축 저장 </h2>
+		<p style="color:white;"> 당신의 최근 감정, 고민, 눈물 버튼을 추출하여 <br> 디지털 정서 포맷으로 압축합니다.</p>
+		<img src="3-image.png" class="step1-img">
+	</div>
+</section>
+<section class="black" style="padding-top:100px;position: relative;"> 
+	<img src="4-gif.gif" class="step2-img">
+		<div class="left">
+			<h1 class="step2 right-text">STEP<br>2</h1>
+			<h2 style="color:white;font-size: 5rem;" class="right-text"> 캡슐 전송 </h2>
+			<p style="color:white;padding-bottom: 200px;" class="right-text"> 압축된 감정 데이터를 캡슐에 삽입한 뒤, <br> 신체는 이곳에 두고 당신의 의식만 안전하게 전송됩니다.</p>
+		</div>
+</section>
+<section class="gif-section">
+	<h2 class="center-spacing" style="color:#04FBF7;"> 그러니 이제 현실은 걱정 말고 도망가세요 </h2>
+	<div style="text-align: center;">
+		<a href="detail.html" class="img-wrapper">
+  		<div class="img-box">
+    		<img src="6-image.png" class="img-normal" alt="기본 이미지" style="z-index: 1;">
+    		<img src="7-image.png" class="img-hover" alt="호버 이미지">
+    		<p style="color: #04FBF7;position: relative;top: 50px;z-index: 3;"> click! </p>
+ 		 </div>
+ 	</div>
+</a>
+</section>
+
+
+<footer style="background-color: #04FBF7;">
+		<div class="foot-wrap">
+		<h2 class="foot-h2" style="padding-bottom: 100px;"> GET OUT <br> OF EARTH!</h2>
+		<h2 class="foot-h2" style="background-color:black;color: #FD3002;"> COSMOS </h2>
+		<p class="foot-p-1">CONTACT <br>+82 2-349-1021 </p>
+		<p class="foot-p-2">E-MAIL <br> kdy101904k@gmail.com</p>
+		<p class="foot-p-3">ADRESS <br> SeoulTech Davinci</p>
+		<p class="foot-f" style="color: white;">Copyright © 2025 COSMOS.All rights reserved.</p>
+		</div>
+	</footer>	
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');}});}, {root: null,rootMargin: '0px 0px -50% 0px',threshold: 0});
+	const hiddenElements = document.querySelectorAll('.scroll-t');
+    hiddenElements.forEach((el) => observer.observe(el));});
+</script>
+
+</body>
+</html>
